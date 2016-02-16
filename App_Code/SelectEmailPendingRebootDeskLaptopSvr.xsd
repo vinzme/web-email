@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SelectEmailPendingRebootDeskLaptopSvr" targetNamespace="http://tempuri.org/SelectEmailPendingRebootDeskLaptopSvr.xsd" xmlns:mstns="http://tempuri.org/SelectEmailPendingRebootDeskLaptopSvr.xsd" xmlns="http://tempuri.org/SelectEmailPendingRebootDeskLaptopSvr.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="SES2ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="SES2ConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.SES2ConnectionString.ConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SES2ConnectionString (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="False" GeneratorGetMethodName="GetDataSelectEmailPendingRebootDeskLaptopSvr" GetMethodModifier="Public" GetMethodName="GetDataSelectEmailPendingRebootDeskLaptopSvr" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetDataSelectEmailPendingRebootDeskLaptopSvr" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT     a.computer_name, a.source, a.type, a.desktop_laptop_tag, a.desktop_laptop_user, a.client_ipaddress1, a.installed_na_percent, a.updates_needed, a.updates_with_nostatus, a.last_status_update, a.sv_version, 
+                      a.sv_last_update, b.login_name
+FROM         and_csv_consolidated a left join and_csv_desktop_laptop b on a.computer_name = b.computer_name
+where b.login_name is not null and (a.pending_reboot &gt; '0' or a.sv_restart = '1') and 
+(desktop_laptop_tag = 'D' or desktop_laptop_tag = 'L' or type = 'Server' or type = 'DC Server') and 
+desktop_laptop_notconnected &lt;&gt; '1' 
+ORDER BY a.computer_name</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="computer_name" DataSetColumn="computer_name" />
+              <Mapping SourceColumn="source" DataSetColumn="source" />
+              <Mapping SourceColumn="type" DataSetColumn="type" />
+              <Mapping SourceColumn="desktop_laptop_tag" DataSetColumn="desktop_laptop_tag" />
+              <Mapping SourceColumn="desktop_laptop_user" DataSetColumn="desktop_laptop_user" />
+              <Mapping SourceColumn="client_ipaddress1" DataSetColumn="client_ipaddress1" />
+              <Mapping SourceColumn="installed_na_percent" DataSetColumn="installed_na_percent" />
+              <Mapping SourceColumn="updates_needed" DataSetColumn="updates_needed" />
+              <Mapping SourceColumn="updates_with_nostatus" DataSetColumn="updates_with_nostatus" />
+              <Mapping SourceColumn="last_status_update" DataSetColumn="last_status_update" />
+              <Mapping SourceColumn="sv_version" DataSetColumn="sv_version" />
+              <Mapping SourceColumn="sv_last_update" DataSetColumn="sv_last_update" />
+              <Mapping SourceColumn="login_name" DataSetColumn="login_name" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SelectEmailPendingRebootDeskLaptopSvr" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="SelectEmailPendingRebootDeskLaptopSvr" msprop:Generator_DataSetName="SelectEmailPendingRebootDeskLaptopSvr">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TablePropName="DataTable1" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="computer_name" msprop:Generator_UserColumnName="computer_name" msprop:Generator_ColumnPropNameInRow="computer_name" msprop:Generator_ColumnVarNameInTable="columncomputer_name" msprop:Generator_ColumnPropNameInTable="computer_nameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="source" msprop:Generator_UserColumnName="source" msprop:Generator_ColumnPropNameInRow="source" msprop:Generator_ColumnVarNameInTable="columnsource" msprop:Generator_ColumnPropNameInTable="sourceColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="type" msprop:Generator_UserColumnName="type" msprop:Generator_ColumnPropNameInRow="type" msprop:Generator_ColumnVarNameInTable="columntype" msprop:Generator_ColumnPropNameInTable="typeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="desktop_laptop_tag" msprop:Generator_UserColumnName="desktop_laptop_tag" msprop:Generator_ColumnPropNameInRow="desktop_laptop_tag" msprop:Generator_ColumnVarNameInTable="columndesktop_laptop_tag" msprop:Generator_ColumnPropNameInTable="desktop_laptop_tagColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="desktop_laptop_user" msprop:Generator_UserColumnName="desktop_laptop_user" msprop:Generator_ColumnPropNameInRow="desktop_laptop_user" msprop:Generator_ColumnVarNameInTable="columndesktop_laptop_user" msprop:Generator_ColumnPropNameInTable="desktop_laptop_userColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="client_ipaddress1" msprop:Generator_UserColumnName="client_ipaddress1" msprop:Generator_ColumnPropNameInRow="client_ipaddress1" msprop:Generator_ColumnVarNameInTable="columnclient_ipaddress1" msprop:Generator_ColumnPropNameInTable="client_ipaddress1Column" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="installed_na_percent" msprop:Generator_UserColumnName="installed_na_percent" msprop:Generator_ColumnPropNameInRow="installed_na_percent" msprop:Generator_ColumnVarNameInTable="columninstalled_na_percent" msprop:Generator_ColumnPropNameInTable="installed_na_percentColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="updates_needed" msprop:Generator_UserColumnName="updates_needed" msprop:Generator_ColumnPropNameInRow="updates_needed" msprop:Generator_ColumnVarNameInTable="columnupdates_needed" msprop:Generator_ColumnPropNameInTable="updates_neededColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="updates_with_nostatus" msprop:Generator_UserColumnName="updates_with_nostatus" msprop:Generator_ColumnPropNameInRow="updates_with_nostatus" msprop:Generator_ColumnVarNameInTable="columnupdates_with_nostatus" msprop:Generator_ColumnPropNameInTable="updates_with_nostatusColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="last_status_update" msprop:Generator_UserColumnName="last_status_update" msprop:Generator_ColumnPropNameInRow="last_status_update" msprop:Generator_ColumnVarNameInTable="columnlast_status_update" msprop:Generator_ColumnPropNameInTable="last_status_updateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="sv_version" msprop:Generator_UserColumnName="sv_version" msprop:Generator_ColumnPropNameInRow="sv_version" msprop:Generator_ColumnVarNameInTable="columnsv_version" msprop:Generator_ColumnPropNameInTable="sv_versionColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sv_last_update" msprop:Generator_UserColumnName="sv_last_update" msprop:Generator_ColumnPropNameInRow="sv_last_update" msprop:Generator_ColumnVarNameInTable="columnsv_last_update" msprop:Generator_ColumnPropNameInTable="sv_last_updateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="login_name" msprop:Generator_UserColumnName="login_name" msprop:Generator_ColumnPropNameInRow="login_name" msprop:Generator_ColumnVarNameInTable="columnlogin_name" msprop:Generator_ColumnPropNameInTable="login_nameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
